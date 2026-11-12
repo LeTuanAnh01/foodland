@@ -1,0 +1,4 @@
+import { EmptyState, TableFooter, TableScroll, usePagination } from '@/components/shared';
+import { Badge } from '@/components/ui/badge';
+import type { Partner } from '@/data/types';
+export function PartnerTable({partners}:{partners:Partner[];total:number}){const pagination=usePagination(partners);return <><TableScroll><table className="data-table"><thead><tr><th>MÃ ĐỐI TÁC</th><th>TÊN ĐỐI TÁC</th><th>PHÂN LOẠI</th><th>ĐIỆN THOẠI</th><th>ĐỊA CHỈ</th></tr></thead><tbody>{pagination.items.map(p=><tr key={p.id}><td className="font-bold !text-emerald-700">{p.id}</td><td className="!font-semibold">{p.name}</td><td><Badge tone={p.type==='supplier'?'blue':'green'}>{p.type==='supplier'?'Nhà cung cấp':'Khách hàng'}</Badge></td><td>{p.phone}</td><td>{p.address}</td></tr>)}</tbody></table>{!partners.length&&<EmptyState/>}</TableScroll><TableFooter total={pagination.total} page={pagination.page} onPageChange={pagination.setPage}/></>;}
