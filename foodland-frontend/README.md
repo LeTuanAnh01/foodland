@@ -1,3 +1,33 @@
+# Foodland Frontend v0.9 – Report Center
+
+**Mới:** 34 mẫu báo cáo và xuất Excel định dạng, xem chi tiết theo kỳ, phân trang 10 dòng. Chi tiết tại [CHANGELOG_v0.9.md](CHANGELOG_v0.9.md).
+
+**Dùng thử:** `npm install` → `npm run dev`, vào menu **Báo cáo**. Xuất Excel sẽ tải thư viện ExcelJS khi cần, nên lần xuất đầu có thể chậm hơn.
+
+**Các mẫu công nợ, giá vốn, lãi/lỗ là khung chờ kế toán duyệt; không chứa số liệu thật.**
+
+---
+
+# Foodland Frontend v0.8.0 — Refactor kỹ thuật, chuẩn bị tích hợp API
+
+Kế thừa v0.7, **không thay đổi giao diện hay luồng nghiệp vụ**. Mục tiêu là giữ React Store mỏng, chuyển logic sang các hàm nghiệp vụ thuần và tách lớp lưu trữ demo.
+
+- `src/data/services/foodlandCommands.ts`: toàn bộ lệnh thêm/sửa/xác nhận chứng từ, hóa đơn, kho và hàng hóa. Nhận `DB`, trả `DB` mới + kết quả; không dùng React/localStorage/fetch.
+- `src/data/store.tsx`: React Context giữ state, gọi hàm nghiệp vụ với bản `DB` mới nhất, truyền kết quả về form; `useFoodland()` vẫn tương thích v0.7.
+- `src/data/repositories/demoDataRepository.ts`: giao diện lưu trữ đồng bộ của **demo**, adapter LocalStorage và repository in-memory để kiểm thử.
+- `src/data/api/httpClient.ts`: lớp HTTP tổng quát dự phòng cho API sau này, có mẫu phân trang và xử lý lỗi. **Chưa được kết nối vào giao diện; chưa có Backend/API thật**.
+- `npm run test:refactor`: kiểm tra lệnh nghiệp vụ không phụ thuộc React, lưu trữ demo, giao nhận nhiều đợt, lỗi thiếu kho và HTTP client.
+- `npm run typecheck:domain`: kiểm tra TypeScript lớp domain/repository/API không phụ thuộc cài đặt React/Vite.
+
+**Dữ liệu không đổi:** LocalStorage dùng key `foodland-react-prototype-v1`. Mặc dù model hiện tại đang đồng bộ, khi chuyển sang API bất đồng bộ sẽ cần bổ sung loading/error/cache state và giao dịch database; chưa thể chỉ thay adapter là xong.
+
+**Chạy trên máy:** `npm install && npm run typecheck && npm run build && npm run dev`.
+Chạy regression: `npm run test:refactor && npm run test:inventory && npm run test:workflow && npm run test:attention && npm run test:dates && npm run test:pagination && npm run test:reports`.
+
+Xem [CHANGELOG v0.8](./CHANGELOG_v0.8.md) để biết phạm vi và giới hạn.
+
+---
+
 # Foodland Frontend v0.7.0 — Dashboard & Báo cáo lấy từ dữ liệu đang lưu
 
 Xem [CHANGELOG v0.7](./CHANGELOG_v0.7.md). Kế thừa toàn bộ tính năng v0.6.5: phân trang 10 dòng trên mọi bảng, lọc theo ngày/tuần/tháng/năm, chứng từ – phiếu kho – hóa đơn độc lập, cảnh báo và thao tác xác nhận kho.

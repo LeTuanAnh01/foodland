@@ -41,7 +41,7 @@ export function Sidebar() {
         <span className="mb-3 inline-flex rounded-xl bg-[#e2f6e9] p-2 text-[#10865b]"><Boxes size={20}/></span>
         <strong className="block text-xs">Prototype tương tác</strong>
         <p className="mt-2 text-[11px] leading-5 text-[#82988a]">Dữ liệu giả lập. Thao tác chỉ lưu trên trình duyệt, không có nghiệp vụ kế toán.</p>
-        <Badge>FRONTEND · v0.7.0</Badge>
+        <Badge>FRONTEND · v0.9.0</Badge>
       </div>
       <div className="mt-4 flex items-center gap-3 border-t border-[#edf0ed] pt-4">
         <span className="grid size-9 place-items-center rounded-full bg-[#13553d] text-xs font-bold text-white">FL</span>

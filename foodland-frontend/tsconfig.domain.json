@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmit": true,
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": [
+    "src/data/api/**/*.ts",
+    "src/data/services/**/*.ts",
+    "src/data/repositories/**/*.ts",
+    "src/features/inventory/utils/**/*.ts",
+    "src/features/documents/utils/**/*.ts"
+  ]
+}
