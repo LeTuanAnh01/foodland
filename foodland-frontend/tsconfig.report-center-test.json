@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "./.report-test-build",
+    "noEmit": false,
+    "types": [],
+    "noUnusedLocals": true,
+    "allowImportingTsExtensions": false,
+    "isolatedModules": false
+  },
+  "include": [
+    "src/features/reports/center/catalog.ts",
+    "src/features/reports/center/reportData.ts",
+    "src/data/mocks/initialData.ts"
+  ]
+}

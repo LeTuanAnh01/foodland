@@ -1,0 +1,2 @@
+import { FileBarChart2 } from 'lucide-react';
+export function PendingReports(){return <div className="m-5 rounded-xl border border-[#e8eae5] bg-[#f8faf8] p-6"><div className="mb-3 flex items-center gap-2 text-sm font-bold"><FileBarChart2 size={18}/> Chờ kế toán chốt yêu cầu</div><p className="text-xs leading-6 text-[#718378]">Chưa triển khai công nợ, lợi nhuận, giá vốn, thuế hoặc báo cáo tài chính. Cần mẫu báo cáo thực tế, cách tính và các bộ lọc từ bộ phận kế toán.</p></div>;}
